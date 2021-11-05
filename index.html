@@ -29,9 +29,9 @@
     </div>
     <div class="max-w-6xl container mx-auto">
 
-        <h2 class="uppercase text-red-600 font-extrabold text-center text-2xl mt-8">Winning Codes</h2>
+        <h2 class="uppercase text-red-600 font-extrabold text-center text-2xl mt-8">Winning Codes Comings Soon</h2>
         
-        <table class="mt-4 min-w-full divide-y divide-gray-200 border rounded-lg filter drop-shadow">
+        <!-- <table id="winners" class="mt-4 min-w-full divide-y divide-gray-200 border rounded-lg filter drop-shadow">
           <thead class="bg-gray-50 uppercase">
             <tr>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -45,45 +45,10 @@
               </th>            
             </tr>
           </thead>
-          <tbody>
-            
-            <tr class="bg-white">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-               loreum ipsum
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                NC
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                loreum ipsum
-              </td>
-             
-            
-            </tr>
-            <tr class="bg-gray-50">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    loreum ipsum
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                VA
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    loreum ipsum
-                </td>                            
-              </tr>
-              <tr class="bg-white">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    loreum ipsum
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                 SC
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    loreum ipsum
-                </td>                            
-              </tr>
+          <tbody  >
+
           </tbody>
-        </table>
+        </table> -->
 
     </div>
 
@@ -96,11 +61,25 @@
       </p>
     </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.1/papaparse.min.js"></script>
   <script>
+    
+   
 
-
-
+    Papa.parse("https://docs.google.com/spreadsheets/d/e/2PACX-1vTVqnpkZ0N4FATpNETa3pf2Dc9F53rD_UXm8xfzJkFq4xEREB7y5PFBzOkn-CRSNPzuXvVAypJGpzD3/pub?gid=0&single=true&output=csv", {
+                header: true,
+                download: true,
+                complete: function(results) {
+                    
+                    winners = results.data;                        
+                    $.each(winners , function(key,val) {
+                        console.log(key, val);
+                    });
+                }
+            }); 
+                    
+ 
 
 
   </script>
